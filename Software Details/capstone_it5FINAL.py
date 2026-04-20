@@ -1,3 +1,4 @@
+#THIS IS THE FINAL CODE OF THE PROJECT
 from machine import Pin, PWM
 import time
 
@@ -25,6 +26,7 @@ end_time = 0
 
 #ENTIRE CODE BLOCK
 while True:
+    #reading values
     ldr_val=ldr.value()
     print("LDR:", ldr_val)
     ir1_val=ir1.value()
@@ -32,7 +34,7 @@ while True:
     print("IR1 ", ir1_val)
     print("IR2 ", ir2_val)
     time.sleep(0.5)
-            #Mouth Servo
+    #Mouth Servo
     for i in range(20, 37,4):
         mouth_servo.duty(i)
         time.sleep(0.3)
@@ -40,7 +42,7 @@ while True:
         mouth_servo.duty(i)
         time.sleep(0.3)
         
-            #left eye
+    #left eye
     if ir1_val==0:
         for i in range(70,50,-5):
             servo.duty(i)
@@ -50,7 +52,7 @@ while True:
             servo.duty(i)
             time.sleep(0.5)
                 
-            #right eye
+    #right eye
     elif ir2_val==0:
         for i in range(35,50,5):
             servo.duty(i)
@@ -75,6 +77,7 @@ while True:
             in2.value(0)
             time.sleep(1)
         else:
+            #After 60s ends
             print("60 seconds finished. Stopping. Cooling down")
             ena.duty(0)
             trig=False
